@@ -1,28 +1,53 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
-  return `![${license}](https://img.shields.io/badge/License-${license}-blue)`
+  if (license) {
+    return `![${license}](https://img.shields.io/badge/License-${license}-blue)`;
+  } else {
+    return "";
+  }
 }
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) {}
+function renderLicenseLink(license) {
+  if (license == "MIT") {
+    return `[${license}](https://opensource.org/licenses/MIT)`;
+  } else if (license == "ISC") {
+    return `[${license}](https://opensource.org/licenses/ISC)`;
+  } else {
+    return "";
+  }
+}
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(license) {
+  if (license !== "none") {
+    return `## License:<br/>`;
+  } else {
+    return "";
+  }
+}
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  let output =  
-`# ${data.title}
-` + renderLicenseBadge(data.license) + `
+  let output =
+    `# ${data.title}
+` +
+    renderLicenseBadge(data.license) +
+    `
 
 ## Description:
 
 ${data.description}
 
 ## Table of Contents:
+1. [Installation](#installation:)
+2. [Usage](#usage:)
+3. [License](#license:)
+4. [Contributing](#contributing:)
+5. [Questions](#questions?)
 
 ## Installation:
 
@@ -32,9 +57,10 @@ ${data.installation}
 
 ${data.usage}
 
-## License:
-
-This application uses ${data.license}.
+` +
+    renderLicenseSection(data.license) +
+    renderLicenseLink(data.license) +
+    `
 
 ## Contributing:
 
@@ -46,34 +72,12 @@ ${data.tests}
 
 ## Questions?
 
-You can reach me at:
-
 GitHub: ${data.github}
 
 Email: ${data.email}
-
-<div align="center">
-	<br>
-	<a href="https://github.com/sindresorhus/css-in-readme-like-wat/blame/main/header.svg">
-		<img src="header.svg" width="800" height="400" alt="Click to see the source">
-	</a>
-	<br>
-</div>
 `;
 
-console.log(typeof(output));
-console.log(data.license);
-return output;
+  return output;
 }
 
 module.exports = generateMarkdown;
-
-
-// ## Table of Contents (Optional)
-
-// If your README is long, add a table of contents to make it easy for users to find what they need.
-
-// - [Installation](#installation)
-// - [Usage](#usage)
-// - [Credits](#credits)
-// - [License](#license)
