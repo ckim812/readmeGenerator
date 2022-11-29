@@ -72,7 +72,7 @@ ${data.tests}
 
 ## Questions?
 
-GitHub: ${data.github}
+GitHub: https://github.com/${data.github}
 
 Email: ${data.email}
 `;
