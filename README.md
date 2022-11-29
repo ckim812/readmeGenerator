@@ -20,6 +20,8 @@ Go to the terminal and install using "npm i". Then, the inquirer api will instal
 
 When you type "node index.js", you will be prompted with a series of questions. After all the questions are answered, the README will be created in the same directory called "README.md".
 
+[README Generator Walkthrough Video](https://app.castify.com/view/44f1c509-990b-455c-a877-27278ffe1778)
+
 ## License:<br/>[MIT](https://opensource.org/licenses/MIT)
 
 ## Contributing:
